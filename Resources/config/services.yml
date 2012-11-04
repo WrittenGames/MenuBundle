@@ -1,0 +1,13 @@
+parameters:
+    wg.menu.class:  WG\MenuBundle\Menu\Menu
+    wg.twig.menu_extension.class:  WG\MenuBundle\Twig\Extension\MenuExtension
+
+services:
+    wg.menu:
+        class:  %wg.menu.class%
+    wg.twig.menu_extension:
+        class: %wg.twig.menu_extension.class%
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
